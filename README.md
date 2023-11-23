@@ -1,2 +1,2 @@
 # py94
-TMS course
+Teach Me Skills courses
