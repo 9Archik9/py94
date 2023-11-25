@@ -1,5 +1,5 @@
 def get_email():
-    email = input('Write your email: ')
+    email = input('Write your email or username: ')
     return email
 
 
