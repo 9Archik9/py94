@@ -1,13 +1,26 @@
+def exit_on_keyword(func):
+    def wrapper():
+        while True:
+            value = func()
+            if value.lower() == 'exit':
+                print('Goodbye!')
+                return 'exit'
+            else:
+                return value
+
+    return wrapper
+
+
+@exit_on_keyword
 def get_email():
-    email = input('Write your email or username: ')
-    return email
+    return input('Write your email or username: ')
 
 
+@exit_on_keyword
 def get_password():
-    password = input('Write your password: ')
-    return password
+    return input('Write your password: ')
 
 
-# def out_authorization(email, password):
-#     if get_email().lower() == 'exit' or get_password().lower() == 'exit':
-#         print('Goodbye!')
+@exit_on_keyword
+def get_confirm_password():
+    return input('Confirm your password')

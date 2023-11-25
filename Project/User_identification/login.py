@@ -2,7 +2,7 @@ import json
 from getters import get_email, get_password
 
 
-def check_data(email, password, users):
+def check_login_data(email, password, users):
     for user in users:
         if user.get('email') == email and user.get('password') == password:
             return user.get('email')
@@ -11,17 +11,13 @@ def check_data(email, password, users):
 
 def login_method():
     while True:
-        email = get_email()
-        if email.lower() == 'exit':
-            print('Goodbye!')
+        if get_email() == 'exit' or get_password() == 'exit':
             break
+        else:
+            email = get_email()
+            password = get_password()
 
-        password = get_password()
-        if password.lower() == 'exit':
-            print('Goodbye!')
-            break
-
-        result = check_data(email, password, users)
+        result = check_login_data(email, password, users)
         if result != 'Login error':
             print(f'Welcome, {result}!')
             return result
