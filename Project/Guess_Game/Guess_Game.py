@@ -1,7 +1,7 @@
 from random import randint
 
 
-def range_of_generate():
+def range_to_generated_nums():
     while True:
         try:
             num_1 = int(input('Enter start of range: '))
@@ -11,10 +11,10 @@ def range_of_generate():
             print('Expected number, got a string. Try again')
 
 
-def check_range_for_generate():
+def check_generated_nums():
     while True:
         try:
-            min_range, max_range = range_of_generate()
+            min_range, max_range = range_to_generated_nums()
             if max_range - min_range < 5 or max_range - min_range > 30:
                 print('The range must include from 5 to 30 numbers. Try again: ')
             else:
@@ -24,13 +24,13 @@ def check_range_for_generate():
 
 
 def generate_three_random_nums():
-    num_1, num_2 = check_range_for_generate()
+    num_1, num_2 = check_generated_nums()
     random_nums = [randint(num_1, num_2) for _ in range(3)]
     print(random_nums)
     return set(random_nums)
 
 
-def entered_num_to_guess():
+def user_nums_to_guess():
     user_nums = set()
     for i in range(3):
         num = input('Enter number to guess or \'exit\' to surrender: ')
@@ -41,10 +41,10 @@ def entered_num_to_guess():
     return user_nums
 
 
-def guess_generated_nums():
+def guessing_generated_nums():
     random_nums = generate_three_random_nums()
     while True:
-        user_nums = entered_num_to_guess()
+        user_nums = user_nums_to_guess()
         num_of_matches = len(set(random_nums).intersection(user_nums))
         if num_of_matches == 3:
             print('You win!')
@@ -57,4 +57,4 @@ def guess_generated_nums():
             print('No numbers were guessed. Try again!')
 
 
-guess_generated_nums()
+guessing_generated_nums()
