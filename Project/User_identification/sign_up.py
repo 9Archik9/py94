@@ -1,22 +1,15 @@
 import json
-from getters import get_email, get_password, get_confirm_password
+from getters import get_email, get_password, get_confirm_password, load_user_data
 
 
-def check_signup_data(email, database: list):
-    for user in database:
-        if user['email'] == email:
-            return True
-    return False
+def user_exists(email, users: list):
+    return any(user['email'] == email for user in users)
 
 
-def add_to_json(email, password):
-    database = json.load(open('user_data.json'))
-    new_user = {"email": email,
-                "password": password
-                }
-    database.append(new_user)
+def add_user_to_database(email, password, users):
+    users.append({"email": email, "password": password})
     with open('user_data.json', 'w') as file:
-        json.dump(database, file)
+        json.dump(users, file)
 
 
 def signup_method():
@@ -29,16 +22,17 @@ def signup_method():
         if password.lower() == 'exit':
             break
 
-        if check_signup_data(email, users_base):
-            print('Such email or username already exist.\nTry again')
-        elif not check_signup_data(email, users_base):
-            if get_confirm_password() == password:
-                add_to_json(email, password)
-                print('User add successfully!')
+        if user_exists(email, users_base):
+            print('Such email or username already exists. Try again')
+        else:
+            confirm_password = get_confirm_password()
+            if confirm_password == password:
+                add_user_to_database(email, password, users_base)
+                print('User added successfully!')
                 break
             else:
                 print('Signup error')
                 break
 
 
-users_base = json.load(open('user_data.json'))
+users_base = load_user_data()
