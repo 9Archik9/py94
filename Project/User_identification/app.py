@@ -4,7 +4,7 @@ from sign_up import *
 
 def app():
     while True:
-        user_choose = input('Select authorization option (write number): \n'
+        user_choose = input('Select authorization option or "exit" to interrupt program (write number): \n'
                             '1. Sign up\n'
                             '2. Login\n'
                             '3. Exit\n>')

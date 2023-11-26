@@ -2,8 +2,8 @@ import json
 from getters import get_email, get_password
 
 
-def check_login_data(email, password, users):
-    for user in users:
+def check_login_data(email, password, database):
+    for user in database:
         if user.get('email') == email and user.get('password') == password:
             return user.get('email')
     return 'Login error'
@@ -11,11 +11,13 @@ def check_login_data(email, password, users):
 
 def login_method():
     while True:
-        if get_email() == 'exit' or get_password() == 'exit':
+
+        email = get_email()
+        if email.lower() == 'exit':
             break
-        else:
-            email = get_email()
-            password = get_password()
+        password = get_password()
+        if password.lower() == 'exit':
+            break
 
         result = check_login_data(email, password, users)
         if result != 'Login error':
