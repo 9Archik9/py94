@@ -18,20 +18,27 @@ class Tiger(Animal):
 
 
 class Car(Transport):
+    def __init__(self):
+        self.status = 'off'
+
     def move(self):
-        print('Car drives')
+        if self.status == 'on':
+            print('Car drives')
+        else:
+            print('Please, start the engine')
 
     def launch(self):
+        self.status = 'on'
         print('Engine is on')
 
 
 duck = Duck()
-duck.move()
-duck.voice()
-
 tiger = Tiger()
-tiger.move()
-tiger.voice()
+
+for animal in (duck, tiger):
+    animal.move()
+    animal.voice()
+    print()
 
 car = Car()
 car.launch()
