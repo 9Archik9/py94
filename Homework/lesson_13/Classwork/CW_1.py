@@ -1,9 +1,4 @@
-class CustomNameError(Exception):
-    def __init__(self, name):
-        self.name = name
-
-    def __str__(self):
-        return f'Invalid name: {self.name}'
+from custom_errors import CustomNameError
 
 
 class User:
