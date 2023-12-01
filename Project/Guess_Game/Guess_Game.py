@@ -32,7 +32,7 @@ def generate_three_random_nums():
 
 def user_nums_to_guess():
     user_nums = set()
-    for i in range(3):
+    for _ in range(3):
         num = input('Enter number to guess or \'exit\' to surrender: ')
         if num == 'exit':
             exit()
@@ -50,9 +50,9 @@ def guessing_generated_nums():
             print('You win!')
             break
         elif num_of_matches == 2:
-            print(f'You guess two of three numbers. Try again!')
+            print('You guess two of three numbers. Try again!')
         elif num_of_matches == 1:
-            print(f'You guess one of three numbers. Try again!')
+            print('You guess one of three numbers. Try again!')
         else:
             print('No numbers were guessed. Try again!')
 
