@@ -26,7 +26,6 @@ def check_generated_nums():
 def generate_three_random_nums():
     num_1, num_2 = check_generated_nums()
     random_nums = [randint(num_1, num_2) for _ in range(3)]
-    print(random_nums)
     return set(random_nums)
 
 
@@ -54,7 +53,7 @@ def guessing_generated_nums():
         elif num_of_matches == 1:
             print('You guess one of three numbers. Try again!')
         else:
-            print('No numbers were guessed. Try again!')
+            print('No numbers was guessed. Try again!')
 
 
 guessing_generated_nums()
