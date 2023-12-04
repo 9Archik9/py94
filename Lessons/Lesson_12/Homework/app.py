@@ -1,4 +1,4 @@
-from base_classes import *
+from base_classes import Animal, Transport
 
 
 class Duck(Animal):
