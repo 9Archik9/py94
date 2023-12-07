@@ -1,5 +1,6 @@
 from base_clases import DataStorage
 
+
 class DataStorageWrite(DataStorage):
     def connect(self):
         file = super().connect()
