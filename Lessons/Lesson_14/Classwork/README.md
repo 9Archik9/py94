@@ -1,2 +1,2 @@
 solves tasks from leetcode
-directory "Leetcode"
+directory "Leetcode" 
