@@ -1,7 +1,10 @@
 from Person import Person
+from market import House, Car
 
 man = Person()
-work_period = 20
+house = House()
+car = Car()
+work_period = 22
 
 
 def app():
@@ -10,13 +13,14 @@ def app():
 
 
 app()
+
 print(f'\n{man.name} worked {work_period} day and earned {man.bank_amount} coins in total\n')
 
-man.buy_house()
-man.buy_car()
-man.buy_house()
+car.buy(man)
+house.buy(man)
+car.buy(man)
 
 print(f'{man.name} have {man.bank_amount} coins on bank account')
-man.sell_house()
+house.sell(man)
 print(f'{man.name} have {man.bank_amount} coins on bank account')
-man.sell_car()
+car.sell(man)

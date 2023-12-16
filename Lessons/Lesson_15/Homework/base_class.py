@@ -10,7 +10,6 @@ class Human:
 
     @property
     def bank_amount(self):
-        # print(f'{self.name} have {self.__bank_amount} coins on bank account')
         return self.__bank_amount
 
     def add_to_bank(self, amount):
@@ -22,14 +21,10 @@ class Human:
     def work(self):
         raise NotImplementedError
 
-    def buy_house(self):
+
+class Things:
+    def buy(self, person):
         raise NotImplementedError
 
-    def buy_car(self):
-        raise NotImplementedError
-
-    def sell_house(self):
-        raise NotImplementedError
-
-    def sell_car(self):
+    def sell(self, person):
         raise NotImplementedError
