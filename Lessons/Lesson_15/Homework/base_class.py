@@ -2,8 +2,8 @@ class Human:
     def __init__(self):
         self.name = input('Enter your name: ')
         self.__bank_amount = 0
-        self.estate = None  # house
-        self.chattel = None  # car
+        self.estate_count = 0  # house
+        self.chattel_count = 0  # car
 
     def __str__(self):
         return self.name
