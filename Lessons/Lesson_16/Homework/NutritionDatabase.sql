@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS Users (
      IF NOT EXISTS means that the operation will be performed only if the corresponding object
      does not yet exist in the database
      */
-    UserID SERIAL PRIMARY KEY,
+    ID SERIAL PRIMARY KEY,
     /* SERIAL - specification in PSQL for a column in a database table
     that automatically increases its value when new rows are added. it is convenient to use it with primary key value
        SERIAL already includes the INT data type
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS Users (
 
 -- Table product
 CREATE TABLE IF NOT EXISTS Products (
-    ProductID SERIAL PRIMARY KEY,
+    ID SERIAL PRIMARY KEY,
     ProductName VARCHAR(15) CONSTRAINT must_be_define CHECK (Products.ProductName NOT LIKE '%[0-9]%')  NOT NULL,
     /*
       I want the product column to have a maximum of 15 characters, because I do not know the product
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS Products (
 
 -- Table Consumption (meal)
 CREATE TABLE IF NOT EXISTS Consumption (
-    ConsumptionID SERIAL PRIMARY KEY,
+    ID SERIAL PRIMARY KEY,
     UserID INT,
     ProductID INT NOT NULL,
     Quantity DECIMAL(6, 2) NOT NULL,
@@ -64,10 +64,10 @@ CREATE TABLE IF NOT EXISTS Consumption (
 
      TIMESTAMP -
      */
-    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (UserID) REFERENCES Users(ID),
     /*
      This means that the UserID column in the Consumption table is a foreign key
      that references the UserID column in the Users table.
      */
-    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+    FOREIGN KEY (ProductID) REFERENCES Products(ID)
 );
