@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<body>
+    <h1>Welcome to the Blog!</h1>
+
+    <p>Total number of articles: {{ articles|length }}</p>
+
+    <h2>Article titles:</h2>
+    <ul>
+        {% for article in articles %}
+            <li>{{ article.header }}</li>
+        {% endfor %}
+    </ul>
+
+    <p>
+    Add new article:
+    <a href="http://127.0.0.1:5000/add_article">Click here</a>
+    </p>
+
+</body>
+</html>
