@@ -46,7 +46,8 @@ CREATE TABLE IF NOT EXISTS Products (
     /*
      DECIMAL - indicates a numeric data type with fixed precision and scale.
      DECIMAL(6, 2) indicates that a number can have up to 6 digits in total and up to 2 digits after the decimal point
-     */
+     */     
+
     Carbohydrates DECIMAL(6, 2) NOT NULL,
     Fats DECIMAL(6, 2) NOT NULL
 );

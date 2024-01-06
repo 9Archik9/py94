@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+    <title>User</title>
+</head>
+<body>
+    <h1>User list</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.get('name', '') }}</td>
+                    <td>{{ user.get('email', '') }}</td>
+                    <td>{{ user.get('age', '') }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <form action="/drop_all" method="post">
+        <input type="submit" value="Drop all">
+    </form>
+</body>
+</html>
